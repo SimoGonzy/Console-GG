@@ -1,0 +1,27 @@
+services:
+  console-gg:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: console-gg:local
+    container_name: console-gg
+    restart: unless-stopped
+    init: true
+    ports:
+      - "7681:7681"
+    environment:
+      CONSOLE_GG_STATS_PATH: /data/console_gg_stats.json
+      PYTHONUNBUFFERED: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+      TERM: xterm-256color
+      CONSOLE_GG_TTYD_CREDENTIAL: ${CONSOLE_GG_TTYD_CREDENTIAL:-}
+    volumes:
+      - console_gg_data:/data
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  console_gg_data:

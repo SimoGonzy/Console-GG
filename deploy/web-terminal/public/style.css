@@ -1,0 +1,331 @@
+:root {
+  color-scheme: dark;
+  --bg: #07080c;
+  --bg-lift: #0d1119;
+  --panel: #111824;
+  --panel-strong: #151f2e;
+  --line: #2b3a4f;
+  --line-strong: #3be3d0;
+  --text: #edf7ff;
+  --muted: #93a9ba;
+  --accent: #3be3d0;
+  --accent-2: #f7d76b;
+  --danger: #ff5f76;
+  --ok: #93f071;
+  --shadow: 0 22px 60px rgba(0, 0, 0, 0.42);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background:
+    linear-gradient(145deg, rgba(59, 227, 208, 0.08), transparent 38%),
+    linear-gradient(315deg, rgba(247, 215, 107, 0.07), transparent 34%),
+    var(--bg);
+  color: var(--text);
+  font-family:
+    "Inter",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  overflow: hidden;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.arcade-shell {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 12px;
+  height: 100%;
+  min-height: 100%;
+  padding: clamp(12px, 2vw, 22px);
+}
+
+.topbar {
+  align-items: center;
+  background: rgba(17, 24, 36, 0.92);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  min-height: 72px;
+  padding: 12px;
+}
+
+.brand {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  gap: 12px;
+  min-width: 0;
+  text-decoration: none;
+}
+
+.brand-mark {
+  align-items: center;
+  aspect-ratio: 1;
+  background: var(--accent);
+  color: #06110f;
+  display: inline-flex;
+  flex: 0 0 44px;
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 16px;
+  font-weight: 900;
+  justify-content: center;
+}
+
+.brand strong {
+  display: block;
+  font-size: 22px;
+  line-height: 1.05;
+}
+
+.system-label {
+  color: var(--accent);
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.topbar-actions {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  min-width: 0;
+}
+
+.active-user {
+  color: var(--muted);
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 13px;
+  max-width: 18ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#reconnect,
+.login-form button {
+  background: var(--accent-2);
+  color: #151103;
+  font-weight: 850;
+  min-height: 42px;
+  padding: 0 14px;
+}
+
+.ghost-button {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text);
+  min-height: 42px;
+  padding: 0 12px;
+}
+
+.login-panel {
+  align-self: center;
+  background: rgba(17, 24, 36, 0.96);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+  margin: 0 auto;
+  max-width: 980px;
+  padding: clamp(22px, 5vw, 44px);
+  width: 100%;
+}
+
+.login-copy h1 {
+  font-size: clamp(34px, 7vw, 74px);
+  line-height: 0.96;
+  margin: 10px 0 16px;
+  max-width: 9ch;
+}
+
+.login-copy p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0;
+  max-width: 58ch;
+}
+
+.login-form {
+  background: var(--bg-lift);
+  border: 1px solid var(--line);
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+}
+
+.login-form label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.login-form input {
+  background: #070b11;
+  border: 1px solid var(--line);
+  color: var(--text);
+  min-height: 42px;
+  padding: 10px 12px;
+}
+
+.form-error {
+  color: var(--danger);
+  min-height: 20px;
+  margin: 0;
+}
+
+.terminal-panel {
+  min-height: 0;
+}
+
+.terminal-frame {
+  background: #05070b;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+  min-height: 0;
+}
+
+.terminal-header {
+  align-items: center;
+  background: var(--panel-strong);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  gap: 7px;
+  min-height: 34px;
+  padding: 0 12px;
+}
+
+.terminal-header span {
+  aspect-ratio: 1;
+  background: var(--line);
+  display: block;
+  width: 10px;
+}
+
+.terminal-header span:nth-child(1) {
+  background: var(--danger);
+}
+
+.terminal-header span:nth-child(2) {
+  background: var(--accent-2);
+}
+
+.terminal-header span:nth-child(3) {
+  background: var(--ok);
+}
+
+#terminal {
+  min-height: 0;
+  padding: 10px;
+}
+
+.xterm {
+  height: 100%;
+}
+
+.status {
+  align-items: center;
+  background: rgba(17, 24, 36, 0.9);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  display: flex;
+  min-height: 40px;
+  padding: 0 12px;
+}
+
+.status[data-state="ok"] {
+  border-color: rgba(147, 240, 113, 0.5);
+  color: var(--ok);
+}
+
+.status[data-state="warning"] {
+  border-color: rgba(247, 215, 107, 0.5);
+  color: var(--accent-2);
+}
+
+.status[data-state="error"] {
+  border-color: rgba(255, 95, 118, 0.55);
+  color: var(--danger);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 760px) {
+  body {
+    overflow: auto;
+  }
+
+  .arcade-shell {
+    min-height: 100%;
+  }
+
+  .topbar,
+  .topbar-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .topbar-actions {
+    width: 100%;
+  }
+
+  #reconnect,
+  .ghost-button {
+    width: 100%;
+  }
+
+  .login-panel {
+    align-self: start;
+    grid-template-columns: 1fr;
+  }
+
+  .login-copy h1 {
+    max-width: 11ch;
+  }
+
+  .terminal-panel {
+    min-height: 68vh;
+  }
+}

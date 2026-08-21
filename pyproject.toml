@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "console-gg"
+version = "0.1.0"
+description = "Retro terminal arcade with browser-terminal deployment support."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+console-gg = "console_gg.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["console_gg*"]

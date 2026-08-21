@@ -1,0 +1,16 @@
+.git
+.agents
+.codex
+.superpowers
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+node_modules
+console_gg_stats.json
+winner_bot
+tests
+docs/superpowers
+*.zip
+*.tar
+*.tar.gz

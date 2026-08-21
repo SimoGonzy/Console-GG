@@ -1,0 +1,25 @@
+[Unit]
+Description=Console GG browser terminal
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=consolegg
+Group=consolegg
+WorkingDirectory=/opt/console-gg
+Environment=CONSOLE_GG_STATS_PATH=/var/lib/console-gg/console_gg_stats.json
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=TERM=xterm-256color
+EnvironmentFile=-/etc/console-gg/console-gg.env
+ExecStart=/opt/console-gg/deploy/linux/start-ttyd.sh
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ReadWritePaths=/var/lib/console-gg
+
+[Install]
+WantedBy=multi-user.target

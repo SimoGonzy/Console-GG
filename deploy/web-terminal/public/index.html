@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Console GG Arcade</title>
+    <link rel="stylesheet" href="/vendor/xterm.css" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="arcade-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Console GG home">
+          <span class="brand-mark">GG</span>
+          <span>
+            <span class="system-label">LAN arcade</span>
+            <strong>Console GG</strong>
+          </span>
+        </a>
+        <div class="topbar-actions">
+          <span id="active-user" class="active-user">Guest</span>
+          <button id="logout" class="ghost-button" type="button" hidden>Logout</button>
+          <button id="reconnect" type="button">Reconnect</button>
+        </div>
+      </header>
+
+      <section id="login-panel" class="login-panel" hidden>
+        <div class="login-copy">
+          <p class="system-label">Accesso cabinato</p>
+          <h1>Entra nella sala giochi</h1>
+          <p>
+            Usa uno username autorizzato. Se il gestore ha impostato un codice,
+            inseriscilo prima di aprire la sessione terminale.
+          </p>
+        </div>
+        <form id="login-form" class="login-form">
+          <label for="username">Username</label>
+          <input id="username" name="username" autocomplete="username" required />
+          <label for="access-code">Codice accesso</label>
+          <input id="access-code" name="access-code" type="password" autocomplete="current-password" />
+          <button type="submit">Apri console</button>
+          <p id="login-error" class="form-error" role="alert"></p>
+        </form>
+      </section>
+
+      <section id="terminal-panel" class="terminal-panel" aria-label="Console GG terminal" hidden>
+        <div class="terminal-frame">
+          <div class="terminal-header" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div id="terminal"></div>
+        </div>
+      </section>
+
+      <footer id="status" class="status" data-state="idle">Connessione...</footer>
+    </main>
+    <script src="/vendor/xterm.js"></script>
+    <script src="/vendor/xterm-addon-fit.js"></script>
+    <script src="/client.js"></script>
+  </body>
+</html>
