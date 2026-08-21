@@ -58,6 +58,33 @@ class PublicReleaseTests(unittest.TestCase):
 
         self.assertEqual(missing, [])
 
+    def test_direct_game_launchers_live_under_launchers_directory(self) -> None:
+        """Root play_*.py files clutter the public repo and should live under launchers/."""
+        root_launchers = sorted(path.name for path in PROJECT_ROOT.glob("play_*.py"))
+        expected_launchers = [
+            "play_2048.py",
+            "play_battleship.py",
+            "play_blackjack.py",
+            "play_block_dropper.py",
+            "play_dungeon.py",
+            "play_forza4.py",
+            "play_minesweeper.py",
+            "play_snake.py",
+            "play_tris.py",
+            "play_wordle.py",
+        ]
+        actual_launchers = sorted(path.name for path in (PROJECT_ROOT / "launchers").glob("play_*.py"))
+
+        self.assertEqual(root_launchers, [])
+        self.assertEqual(actual_launchers, expected_launchers)
+
+    def test_readme_direct_launcher_commands_use_launchers_directory(self) -> None:
+        """README launcher examples should match the public folder layout."""
+        readme = (PROJECT_ROOT / "README.md").read_text(encoding="utf-8")
+
+        self.assertNotRegex(readme, r"python\s+play_[a-z0-9_]+\.py")
+        self.assertIn("python launchers/play_blackjack.py", readme)
+
     def test_shell_scripts_are_forced_to_lf_in_git(self) -> None:
         """Windows checkouts must not rewrite Linux shell installers to CRLF."""
         attributes_path = PROJECT_ROOT / ".gitattributes"
@@ -96,6 +123,7 @@ class PublicReleaseTests(unittest.TestCase):
             for path in tracked_paths
             if path.startswith("winner_bot/")
             or path.startswith("tests/test_winner_bot_")
+            or path.startswith("docs/superpowers/")
             or "winner-bot" in path
             or "blackjack-learning" in path
         )

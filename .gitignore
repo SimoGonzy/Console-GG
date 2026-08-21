@@ -21,6 +21,7 @@ build/
 .codex/
 .agents/
 .superpowers/
+docs/superpowers/
 winner_bot/
 tests/test_winner_bot_*.py
 docs/superpowers/specs/*winner-bot*.md

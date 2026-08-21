@@ -21,16 +21,16 @@ Il catalogo raggruppa i giochi in quattro sezioni:
 ## Launcher diretti
 
 ```powershell
-python play_2048.py
-python play_wordle.py
-python play_minesweeper.py
-python play_blackjack.py
-python play_tris.py
-python play_forza4.py
-python play_battleship.py
-python play_snake.py
-python play_block_dropper.py
-python play_dungeon.py
+python launchers/play_2048.py
+python launchers/play_wordle.py
+python launchers/play_minesweeper.py
+python launchers/play_blackjack.py
+python launchers/play_tris.py
+python launchers/play_forza4.py
+python launchers/play_battleship.py
+python launchers/play_snake.py
+python launchers/play_block_dropper.py
+python launchers/play_dungeon.py
 ```
 
 ## Giochi E Controlli
