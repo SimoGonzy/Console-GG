@@ -18,21 +18,6 @@ Il catalogo raggruppa i giochi in quattro sezioni:
 - `ARCADE`: Snake, Block Dropper
 - `AVVENTURA`: Dungeon
 
-## Launcher diretti
-
-```powershell
-python launchers/play_2048.py
-python launchers/play_wordle.py
-python launchers/play_minesweeper.py
-python launchers/play_blackjack.py
-python launchers/play_tris.py
-python launchers/play_forza4.py
-python launchers/play_battleship.py
-python launchers/play_snake.py
-python launchers/play_block_dropper.py
-python launchers/play_dungeon.py
-```
-
 ## Giochi E Controlli
 
 - `2048`: `W/A/S/D` o frecce per muovere, `Q` per uscire.
